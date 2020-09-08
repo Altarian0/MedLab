@@ -20,8 +20,15 @@ namespace MedLab.Classes
             Brushes.Red
         };
 
+        /// <summary>
+        /// Генерация капчи на заданном канвасе
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <returns></returns>
         public static string GenerateCaptcha(Canvas canvas)
         {
+            canvas.Children.Clear();
+
             Random random = new Random();
             string captcha = "";
             
@@ -46,13 +53,15 @@ namespace MedLab.Classes
                 captcha += captchaSymbols[random.Next(0, captchaSymbols.Length)].ToString();
             }
 
+           
             Label label = new Label()
             {
                 Content = captcha,
-                Margin = new Thickness(120, 30, 0, 0),
+                Margin = new Thickness(100, 20, 0, 0),
                 FontSize = 24,
                 FontWeight = FontWeights.Bold,
-                RenderTransform = new RotateTransform(random.NextDouble()*10)
+                RenderTransformOrigin = new Point(0.5,0.5), 
+                RenderTransform = new RotateTransform(random.Next(-20, 20))
             };
 
             canvas.Children.Add(label);

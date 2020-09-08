@@ -26,8 +26,13 @@ namespace MedLab.Database.DBHelper
         }
     
         public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Note> Note { get; set; }
         public virtual DbSet<Patient> Patient { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ServiceType> ServiceType { get; set; }
     }
 }

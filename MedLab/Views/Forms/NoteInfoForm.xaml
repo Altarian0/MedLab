@@ -1,0 +1,47 @@
+﻿<Window x:Class="MedLab.Views.Forms.NoteInfoForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedLab.Views.Forms"
+        mc:Ignorable="d"
+        Title="Информация о записи" Height="350" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Border Background="Blue" >
+            <Button x:Name="PatientButton" Background="{x:Null}" Margin="80,10,80,10" Click="PatientButton_Click">
+                <TextBlock Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Patient.FullName}"/>
+            </Button>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" VerticalAlignment="Center" Margin="10">
+                <TextBlock FontSize="14" Text="Статус записи: " />
+                <TextBlock FontSize="14" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,0,0" Text="{Binding Status.Name}" />
+            </Grid>
+
+            <Grid Grid.Row="1" VerticalAlignment="Center" Margin="10">
+                <TextBlock FontSize="14" Text="Прикрепленный лаборант: " />
+                <TextBlock FontSize="14" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,0,0" Text="{Binding User.FullName}" />
+            </Grid>
+        </Grid>
+        <DataGrid x:Name="ServiceList" AutoGenerateColumns="False" ItemsSource="{Binding Service}" Grid.Row="2" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding ServiceType.Name}" Header="Услуга"/>
+                <DataGridTextColumn Width="*" Binding="{Binding SendDate, StringFormat=dd.MM.yyy hh:mm:ss}" Header="Дата сдачи биоматериала"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="DoneButton" Content="Анализы готовы" Grid.Row="3" Width="100" Height="30" HorizontalAlignment="Right" Margin="0,0,120,0" Click="DoneButton_Click"/>
+        <Button x:Name="CancelButton" Foreground="White" Background="red" Content="Отменить" Grid.Row="3" Width="100" Height="30" HorizontalAlignment="Right" Margin="0,0,5,0" Click="CancelButton_Click"/>
+    </Grid>
+</Window>

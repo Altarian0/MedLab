@@ -14,6 +14,12 @@ namespace MedLab.Database.DBHelper
     
     public partial class Patient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Patient()
+        {
+            this.Note = new HashSet<Note>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string MiddleName { get; set; }
@@ -26,5 +32,7 @@ namespace MedLab.Database.DBHelper
         public string Address { get; set; }
     
         public virtual Gender Gender1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Note> Note { get; set; }
     }
 }

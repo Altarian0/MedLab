@@ -12,23 +12,24 @@ namespace MedLab.Database.DBHelper
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Note
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Note()
         {
-            this.Note = new HashSet<Note>();
+            this.Service = new HashSet<Service>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-        public int Password { get; set; }
-        public int RoleId { get; set; }
+        public int PatientId { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public int StatusId { get; set; }
+        public Nullable<int> LaborantId { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual Patient Patient { get; set; }
+        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Note> Note { get; set; }
+        public virtual ICollection<Service> Service { get; set; }
+        public virtual User User { get; set; }
     }
 }

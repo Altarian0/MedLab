@@ -10,5 +10,6 @@ namespace MedLab.Database.DBHelper
     public partial class User
     {
         public string Login { get { return $"{LastName} {Name} {MiddleName} ({Password})"; } }
+        public string FullName { get { return $"{LastName} {Name} {MiddleName}"; } }
     }
 }

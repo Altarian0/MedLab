@@ -1,4 +1,5 @@
 ﻿using MedLab.Database.DBHelper;
+using MedLab.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,22 @@ namespace MedLab.Views.Forms
         public MainWindow(User user)
         {
             InitializeComponent();
+            this.DataContext = user;
+            if (user.RoleId == 1)
+                MainFrame.Navigate(new AdminPage(user));
+            if (user.RoleId == 2)
+                MainFrame.Navigate(new LaborantPage(user));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack)
+                MainFrame.GoBack();
         }
     }
 }

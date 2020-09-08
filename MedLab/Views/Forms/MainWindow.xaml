@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedLab"
         mc:Ignorable="d"
-        Title="{Binding }" Height="450" Width="800" MinHeight="250" MinWidth="400">
+        Title="{Binding FullName}" Height="540" Width="800" MinHeight="350" MinWidth="500">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="red" Grid.Row="0">
+            <Image Source="/MedLab;component/kn_en_colors_3x_FrB_icon.ico"  HorizontalAlignment="Right" Margin="5"/>
+            <Button x:Name="BackButton" HorizontalAlignment="Left" Margin="10" Width="100" Content="Назад" Click="BackButton_Click"/>
+            <Label Content="{Binding Role.Name}" Foreground="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>
 </Window>

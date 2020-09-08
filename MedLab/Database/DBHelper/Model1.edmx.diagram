@@ -4,13 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9f64891ab0c24856b93eeb25293bceda" Name="Diagram1">
-        <EntityTypeShape EntityType="MedLabModel.Gender" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MedLabModel.Patient" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MedLabModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MedLabModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="d25a9e439aba4be8bc552d4bc8bbefdd" Name="Diagram1">
+        <EntityTypeShape EntityType="MedLabModel.Gender" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Note" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Patient" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Role" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Service" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.Status" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedLabModel.User" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="MedLabModel.FK_Patient_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Note_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Note_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="MedLabModel.FK_Service_Note" ManuallyRouted="false" />
         <AssociationConnector Association="MedLabModel.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MedLabModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="MedLabModel.FK_Note_User" />
+        <EntityTypeShape EntityType="MedLabModel.ServiceType" Width="1.5" PointX="3.375" PointY="8.875" />
+        <AssociationConnector Association="MedLabModel.FK_Service_ServiceType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

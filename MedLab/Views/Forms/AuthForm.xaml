@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedLab.Views.Forms"
         mc:Ignorable="d"
-        Title="Авторизация" Height="280" Width="460" ResizeMode="NoResize">
+        Title="Авторизация" Height="280" Width="460" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="308*"/>
@@ -17,6 +17,8 @@
             <RowDefinition Height="36*"/>
             <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
+        <Image Source="/MedLab;component/kn_en_colors_3x_FrB_icon.ico" HorizontalAlignment="Left" Margin="29,10,0,96" Grid.Column="2"/>
+
         <Grid HorizontalAlignment="Center" Height="76" Margin="102,91,3,0" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Canvas x:Name="CaptchaCanvas" />
         </Grid>
@@ -25,8 +27,8 @@
             <TextBox Name="PasswordBox"  HorizontalAlignment="Center" Height="26" Margin="0,45,0,10" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center" FontSize="14" PreviewTextInput="PasswordBox_PreviewTextInput"/>
         </Grid>
         <Button x:Name="LoginButton" Content="Войти"  Height="26" Margin="176,0,30,17" Click="LoginButton_Click" VerticalAlignment="Bottom" Grid.Row="2"/>
-        <TextBox x:Name="CaptchaText" Margin="148,0,2,4" VerticalContentAlignment="Center" FontSize="14" Height="26" VerticalAlignment="Bottom" Grid.Row="1"/>
-        <Button x:Name="CaptchaButton" Margin="3,5,3,4" VerticalContentAlignment="Center" FontSize="14" Content="Up" Grid.Row="1" Grid.Column="1"/>
+        <TextBox x:Name="CaptchaText" Visibility="Hidden" Margin="148,0,2,4" VerticalContentAlignment="Center" FontSize="14" Height="26" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <Button x:Name="CaptchaButton" Visibility="Hidden" Margin="3,5,3,4" VerticalContentAlignment="Center" FontSize="14" Content="Up" Grid.Row="1" Grid.Column="1" Click="CaptchaButton_Click"/>
 
     </Grid>
 </Window>
